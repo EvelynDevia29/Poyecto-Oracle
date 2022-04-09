@@ -1,0 +1,60 @@
+<meta charset="UTF-8" />
+<h2>PROGRAMA QUE CALCULA EL IMC</h2>
+<br />
+
+<script>
+var imcJuan,imcMaria;
+    function saltarLinea() {
+        document.write("<br><br>");
+    }
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarLinea();
+    }
+
+    function calcularImc(peso, altura) {
+        indiceMasaCorporal = (peso / Math.pow(altura,2));
+      
+        
+       imprimir(
+            "El indice de masa corporal para " + " con un peso de: " +
+            peso +
+            " Kgs y una altura de: " +
+            altura +
+            " m es: " +
+            indiceMasaCorporal 
+            
+        );
+        
+        if (indiceMasaCorporal >= 18.4 && indiceMasaCorporal < 24.9) {
+            imprimir("Peso normal");
+        }
+
+        else if (indiceMasaCorporal < 18.4) {
+            imprimir("Peso bajo");
+        }
+        else if (indiceMasaCorporal >= 25 && indiceMasaCorporal <= 29.9) {
+            imprimir("Sobrepeso");
+        }
+        else if (indiceMasaCorporal >= 30 && indiceMasaCorporal < 34.9) {
+            imprimir("Obesidad grado I");
+
+        }
+        else if (indiceMasaCorporal > 35 && indiceMasaCorporal <= 39.9) {
+            imprimir("Obesidad grado II");
+
+        }
+        else if (indiceMasaCorporal > 40) {
+            imprimir("Obesidad grado III morbida");
+        }
+        return indiceMasaCorporal;
+
+    }
+
+    
+    imprimir("El promedio de IMC entre Juan y María es: " + (calcularImc(90,1.80) + calcularImc(50,1.66))/2 );
+    imprimir("El promedio de IMC entre Gabriela y Luisa es: " + (calcularImc(70,1.50) + calcularImc(58,1.66))/2 );
+
+    
+</script>
