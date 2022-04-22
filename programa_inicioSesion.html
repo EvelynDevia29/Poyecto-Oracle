@@ -1,0 +1,44 @@
+<meta charset="UTF-8" />
+<h2>PROGRAMA DE INICIO DE SESION</h2>
+<br />
+<!-- Cambia el código anterior para que el usuario tenga 3 intentos de inicio de sesión. 
+Atención: si lo hace bien en el primer intento, no tiene sentido seguir preguntando 
+por su nombre de usuario y contraseña. -->
+
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+  }
+
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+
+  var inicioDeSesionRegistrado = "alura";
+  var contrasenhaRegistrada = "alura321";
+
+  var inicioDeSesionIngresado = prompt("Ingrese su usuario");
+  var contrasenhaIngresada = prompt("Ingrese su contraseña");
+  var contadorInicioSesion = 0;
+
+  while (contadorInicioSesion < 2) {
+    if (
+      inicioDeSesionRegistrado == inicioDeSesionIngresado &&
+      contrasenhaRegistrada == contrasenhaIngresada
+    ) {
+      alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+      break;
+    } else {
+      alert("inicio de sesión inválido. Favor intente de nuevo");
+      inicioDeSesionIngresado = prompt("Ingrese su usuario");
+      contrasenhaIngresada = prompt("Ingrese su contraseña");
+
+      contadorInicioSesion += 1;
+    }
+    if (contadorInicioSesion == 2) {
+      alert("FALLO INICIO DE SESION");
+    }
+  }
+</script>
+

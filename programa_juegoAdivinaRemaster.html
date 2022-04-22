@@ -1,0 +1,43 @@
+<meta charset="UTF-8" />
+<h2>PROGRAMA ADIVINA EL NUMERO</h2>
+<br />
+
+<script>
+    function saltarLinea() {
+        document.write("<br><br>");
+    }
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarLinea();
+    }
+
+    var numeroPensado = Math.round(Math.random() * 10);
+    var intentos = 3;
+    contador = 1;
+
+    while (contador <= intentos) {
+        var numeroLanzado = parseInt(prompt("Ingrese un numero entre 0-10 "));
+
+        if (numeroPensado === numeroLanzado) {
+            alert(
+                "Usted acertó, en el intento " +
+                contador +
+                " el numero pensado era: " +
+                numeroPensado
+            );
+            break;
+        } else {
+            alert("Usted erró");
+        }
+        contador += 1;
+
+    }
+    if (numeroPensado === numeroLanzado) {
+        imprimir(
+            "Usted acertó,  el numero pensado era: "+  numeroPensado );
+       
+        } else {
+        imprimir("Usted erró el numero pensado era: "  +  numeroPensado);
+    }
+</script>

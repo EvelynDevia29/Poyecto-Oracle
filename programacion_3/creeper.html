@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!-- <script src="./canvas.js"></script> -->
+    <title>Creeper</title>
+</head>
+
+
+<canvas width="600" height="400"></canvas>  <!-- Su canvas debe tener el tamaño de 600 x 400 pixeles. -->
+
+<script>
+
+    var pantalla= document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    //Rectángulo 1: 350, 300 (cabeza).
+    pincel.fillStyle = "darkgreen" 
+    pincel.fillRect(0,0,350,300);
+
+    //Rectángulos 2 y 3: 90, 90 (ojos).
+    pincel.fillStyle = "black" 
+    pincel.fillRect(50,50,90,90);
+    pincel.fillStyle = "black" 
+    pincel.fillRect(210,50,90,90);
+
+    //Rectángulo 4: 70, 100 (nariz).
+    pincel.fillStyle = "black" //p
+    pincel.fillRect(140,140,70,100);
+
+    //Rectángulos 5 y 6: 40, 110 (parte de la boca).
+    pincel.fillStyle = "black" //p
+    pincel.fillRect(100,190,40,110);
+
+    pincel.fillStyle = "black" //p
+    pincel.fillRect(210,190,40,110);
+
+</script>
+</html>

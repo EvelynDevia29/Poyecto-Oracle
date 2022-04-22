@@ -1,0 +1,31 @@
+<meta charset="UTF-8" />
+<h2>PROGRAMA QUE CALCULA LAS TABLAS DE MULTIPLICAR</h2>
+<br />
+
+<script>
+    function saltarLinea() {
+        document.write("<br><br><br>");
+    }
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarLinea();
+    }
+
+    var tablaDel = parseInt(prompt("Digite el numero de la tabla"));
+    var contador = 1;
+    imprimir("WHILE");
+    while (contador <= 10) {
+
+        imprimir(tablaDel + " * " + contador + " = " + (tablaDel * contador));
+        contador += 1;
+
+    }
+
+    /*^---LO MISMO HECHO CON UN FOR*/
+    imprimir("FOR");
+    for (contador = 1; contador <= 10; contador++) {
+        imprimir(tablaDel + " * " + contador + " = " + tablaDel * contador);
+    }
+
+</script>

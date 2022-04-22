@@ -3,7 +3,7 @@
 <br />
 
 <script>
-var imcJuan,imcMaria;
+   
     function saltarLinea() {
         document.write("<br><br>");
     }
@@ -13,12 +13,18 @@ var imcJuan,imcMaria;
         saltarLinea();
     }
 
-    function calcularImc(peso, altura) {
+    var nombre =prompt("Cuál es su nombre? ");
+    var peso =parseInt(prompt("Cuál es su peso? "));
+    var altura =parseFloat(prompt("Cuál es su altura? "));
+
+    calcularImc(nombre, peso,altura);
+
+    function calcularImc(nombre, peso, altura) {
         indiceMasaCorporal = (peso / Math.pow(altura,2));
       
         
        imprimir(
-            "El indice de masa corporal para " + " con un peso de: " +
+            "El indice de masa corporal para " + nombre + " con un peso de: " +
             peso +
             " Kgs y una altura de: " +
             altura +
@@ -36,7 +42,7 @@ var imcJuan,imcMaria;
         else if (indiceMasaCorporal < 18.4) {
             imprimir("Paciente con Peso bajo <br>" );
         }
-        else if (indiceMasaCorporal >= 25 && indiceMasaCorporal <= 29.9) {
+        else if (indiceMasaCorporal >= 24.9 && indiceMasaCorporal <= 29.9) {
             imprimir("Paciente con Sobrepeso <br>");
         }
         else if (indiceMasaCorporal >= 30 && indiceMasaCorporal < 34.9) {
@@ -55,8 +61,5 @@ var imcJuan,imcMaria;
     }
 
     
-    imprimir("El promedio de IMC entre Juan y María es: " + (calcularImc(90,1.80) + calcularImc(50,1.66))/2 );
-    imprimir("El promedio de IMC entre Gabriela y Luisa es: " + (calcularImc(70,1.50) + calcularImc(58,1.66))/2 );
-
-    
+     
 </script>

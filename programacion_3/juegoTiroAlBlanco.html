@@ -1,0 +1,64 @@
+<canvas width="600" height="400"> </canvas>
+<script>
+  /*Altera el código para que el círculo ni bien llegue al extremo derecho de la pantalla vuelva
+     en sentido contrario (de derecha a izquierda), y cuando retorne al lugar inicial (lado izquierdo),
+     nuevamente se mueva de izquierda a derecha, y así sucesivamente, yendo y volviendo eternamente.*/
+
+  //creacion del rectangulo canvas
+  var x;
+  var xAletorio;
+  var yAleatorio;
+  var pantalla = document.querySelector("canvas");
+  var pincel = pantalla.getContext("2d");
+  pincel.fillStyle = "lightgrey"; //color del canvas
+  pincel.fillRect(0, 0, 600, 400); //Tamaño del canvas
+
+  function disenarCircunferencia(x, y, radio, color) {
+    pincel.fillStyle = color;
+    pincel.beginPath();
+    pincel.arc(x, y, radio, 0, 2 * Math.PI);
+    pincel.fill();
+  }
+
+  function LimpiarPantalla() {
+    pincel.clearRect(0, 0, 600, 400); //limpia la pantalla
+  }
+
+  let radio = 10;
+
+  function disenarObjetivo(x, y) {
+    disenarCircunferencia(x, y, radio + 20, "red");
+    disenarCircunferencia(x, y, radio + 10, "white");
+    disenarCircunferencia(x, y, radio, "red");
+  }
+
+  function lanzarAleatorio(maximo) {
+    return Math.floor(Math.random() * maximo);
+  }
+
+  function ActualizarPantalla() {
+    LimpiarPantalla();
+    xAletorio = lanzarAleatorio(600);
+    yAleatorio = lanzarAleatorio(400);
+    disenarObjetivo(xAletorio, yAleatorio);
+    x++;
+  }
+
+  setInterval(ActualizarPantalla, 2000); // m
+
+  pantalla.onclick = disparar;
+
+  function disparar(evento) {
+    //Limpiar las coordenadas del canvas para que me inicie la captura desde las coordenadas 0,0
+    var x = evento.pageX - pantalla.offsetLeft; //quitando la linea de la izquierda
+    var y = evento.pageY - pantalla.offsetTop;//quitando la linea de la parte superior--> todo esto para que nos de las coordenadas desde 0,0
+
+    if (
+      (x < xAletorio + radio )&&(x > xAletorio - radio )&&(y < yAleatorio + radio )&&(y > yAleatorio - radio)) {
+        alert('Tiro al blanco');
+    }
+
+  
+  }
+
+</script>

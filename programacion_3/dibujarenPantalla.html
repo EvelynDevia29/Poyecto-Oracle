@@ -1,0 +1,50 @@
+<canvas width="600" height="400"> </canvas>
+<script>
+    /*Altera el código para que el círculo ni bien llegue al extremo derecho de la pantalla vuelva
+     en sentido contrario (de derecha a izquierda), y cuando retorne al lugar inicial (lado izquierdo),
+     nuevamente se mueva de izquierda a derecha, y así sucesivamente, yendo y volviendo eternamente.*/
+
+    //creacion del rectangulo canvas
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    pincel.fillStyle = "lightgrey";//color del canvas
+    pincel.fillRect(0, 0, 600, 400); //Tamaño del canvas
+
+    function disenarCircunferencia(x, y, radio) {
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function LimpiarPantalla() {
+        pincel.clearRect(0, 0, 600, 400);//limpia la pantalla
+
+    }
+
+    let x = 0;
+    let sentido = 1;
+
+    function MoverIzqDer() {
+        LimpiarPantalla();
+        if (x > 600) {
+            sentido = -1;
+
+        } else if (x < 0) {
+            sentido = 1;
+
+        }
+        disenarCircunferencia(x, 20, 10);
+        x = x + sentido;
+        console.log('else if2 ', x);
+
+    }
+
+    setInterval(MoverIzqDer, 5);// muestra cada segundo la funcion mostrar 1000mseg-->1seg
+
+
+
+
+
+
+</script>
