@@ -1,38 +1,34 @@
-let paciente = document.querySelector("#primer-paciente");
+var pacientes = document.querySelectorAll(".paciente");
 
-console.log(paciente);
+for(var i = 0; i< pacientes.length;i++){
+    var paciente = pacientes[i];
 
-let tdPeso = paciente.querySelector(".info-peso");
-let valorPeso = tdPeso.textContent;
-console.log(paciente);
-console.log(tdPeso);
-console.log(valorPeso);
+    var tdPeso = paciente.querySelector(".info-peso"); 
+    var tdAltura = paciente.querySelector(".info-altura");
+    var tdIMC = paciente.querySelector(".info-imc");
 
-var altura = paciente.querySelector(".info-altura");
-var valorAltura = altura.textContent;
-console.log(valorAltura);
+    var altura = tdAltura.textContent;
+    var peso = tdPeso.textContent;
 
-var pesoEsValido = true;
-var alturaEsValida = true;
+    pesoEsValido = true;
+    alturaEsValida = true;
 
-var tdIMC = paciente.querySelector(".info-imc");
+    if((peso < 0)||(peso > 1000)){
+        console.log("Peso incorrecto");
+        tdIMC.textContent = "Peso incorrecto";
+        pesoEsValido = false;
+        paciente.classList.add("paciente-incorrecto");
+    }
 
+    if((altura < 0)||(altura > 3.0)){
+        console.log("Peso incorrecto");
+        tdIMC.textContent = "Altura incorrecta";
+        alturaEsValida = false;
+        paciente.classList.add("paciente-incorrecto");
+    }
 
-/*console.log(indiceMasaCorporal);*/
-
-if (valorPeso < 0 || valorPeso > 1000)  {
-    console.log("Peso incorrecto");
-    tdIMC.textContent ="Peso incorrecto";
-    pesoEsValido= false;
-}
-
-if (valorAltura < 0 || valorAltura > 3) {
-    alturaEsValida=false;
-    tdIMC.textContent ="Altura incorrecta";
-    console.log("Altura incorrecta");
-}
-if(pesoEsValido && alturaEsValida){
-    let indiceMasaCorporal = (valorPeso)/(Math.pow(valorAltura,2));
-    tdIMC.textContent = indiceMasaCorporal;
-
+    if(pesoEsValido && alturaEsValida){
+        var imc = peso / (altura * altura);
+        tdIMC.textContent = imc.toFixed(2);
+    } 
 }
